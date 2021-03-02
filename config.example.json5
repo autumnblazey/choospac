@@ -1,0 +1,31 @@
+// create a copy of this file to configure choospac
+// if none is specified, the defaults are used
+// defaults may be documented in the future, for now see server/src/config.ts
+// for up to date defaults
+// look for the z. ... .default(), the value between the
+// parens in default() is the default value
+
+{
+   // whether or not to use https
+   https: false,
+
+   // if https is enabled, whether or not to redirect all http requests to https
+   // this is ignored if https is false
+   redirect: true,
+
+   // port to host on
+   // NOTE on *nix systems you need to be running this as a priveledged user
+   // to bind to ports less than 1024
+   HTTPport: 8080,
+
+   // port to host HTTPS on
+   // see note on HTTPport
+   HTTPSPort: 8081,
+
+   // path to certificates, ignored if https is false
+   certs: {
+      ca: "/path/to/chain.pem",
+      cert: "/path/to/cert.pem",
+      key: "/path/to/privkey.pem"
+   }
+}

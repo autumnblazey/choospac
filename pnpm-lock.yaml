@@ -1,4 +1,6 @@
 importers:
+  .:
+    specifiers: {}
   client:
     dependencies:
       '@vue/cli-plugin-babel': 4.5.11_188f3311876e3c302608787a13c581d9
@@ -55,9 +57,15 @@ importers:
     specifiers: {}
   server:
     dependencies:
+      json5: 2.2.0
+      source-map-support: 0.5.19
       typescript: 4.2.2
+      zod: 3.0.0-alpha.4
     specifiers:
+      json5: ^2.2.0
+      source-map-support: ^0.5.19
       typescript: ^4.2.2
+      zod: ^3.0.0-alpha.4
 lockfileVersion: 5.2
 packages:
   /@babel/code-frame/7.12.11:
@@ -10350,3 +10358,7 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-jcKpkthap6x63MB4TxwCyuIGkV0oYP/YRyuQU5UO0Yz/E/ZAu+653/uov+phdmO54n6BcvFRyyt0RRrWdN2mpw==
+  /zod/3.0.0-alpha.4:
+    dev: false
+    resolution:
+      integrity: sha512-pOtx1/JRT4NQ3K0wlnVAFDMY6Kvsb0xIMZvAaVzZBDUFKUS6OgZtrztcpI5NqCB4KMexcbgXgKxgpOpia9SFSw==

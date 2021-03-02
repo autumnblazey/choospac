@@ -1,6 +1,9 @@
 {
+   "name": "choospac",
    "private": true,
+   "version": "0.1.0",
    "scripts": {
-      "build": "node script-runner build"
+      "build": "node script-runner build",
+      "start": "node script-runner start"
    }
 }
