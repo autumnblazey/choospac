@@ -1,19 +1,21 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
-
-const routes: Array<RouteRecordRaw> = [{
-   name: 'Home',
-   path: '/',
-   component: Home
-}, {
-   name: 'About',
-   path: '/about',
-   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-}]
+import { createRouter, createWebHistory } from "vue-router";
+import Home from "../views/Home.vue";
 
 const router = createRouter({
    history: createWebHistory(process.env.BASE_URL),
-   routes
-})
+   routes: [{
+      name: "Home",
+      path: "/",
+      component: Home
+   }, {
+      name: "About",
+      path: "/about",
+      component: () => import(/* webpackChunkName: "about" */ "../views/About.vue")
+   }, {
+      name: "404 Not Found",
+      path: "/:catchAll(.*)",
+      component: () => import(/* webpackChunkName: "404" */ "../views/404.vue")
+   }]
+});
 
-export default router
+export default router;

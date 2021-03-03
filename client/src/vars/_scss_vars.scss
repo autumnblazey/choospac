@@ -1,0 +1,8 @@
+$primary-color: #ff74cc;
+$primary-color-2: adjust-color($color: $primary-color, $lightness: 10%);
+$primary-color-2-slightly-darker: adjust-color($color: $primary-color-2, $lightness: 5%);
+$background-color: adjust-color($color: $primary-color-2, $lightness: 15%);
+$background-color-slightly-darker: adjust-color($color: $background-color, $lightness: -5%);
+$shadow-color: #00000022;
+
+$text-color: #333333;
