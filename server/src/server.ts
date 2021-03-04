@@ -5,6 +5,8 @@ import http2 from "http2";
 import cluster, { isMaster, fork } from "cluster";
 import os from "os";
 import z from "zod";
+import { log } from "./log";
+import { getconfig } from "./config";
 
 isMaster ? main() : worker();
 
@@ -21,22 +23,7 @@ function main() {
 }
 
 async function worker() {
-   const { configvalidator } = await import("./config");
-   const JSON5 = await import("json5");
-
-   const configpath = path.resolve(__dirname, "../../config.json5");
-   const configstr: string = !fs.existsSync(configpath) ? "{}" : fs.readFileSync(configpath).toString();
-   let configraw;
-   try {
-      configraw = JSON5.parse(configstr);
-   } catch {
-      error("syntax error in config");
-      configraw = {};
-   }
-
-   const configparseres = configvalidator.safeParse(configraw);
-   if (!configparseres.success) throw void error("config is invalid!", configparseres.error);
-   const config = configparseres.data;
+   const config = getconfig();
 
    const httpserver = createHTTPserver(config.HTTPport);
    const httpsserver = config.https ? createHTTPSserver(config.HTTPSport, {
@@ -82,14 +69,4 @@ function createredirector(port: number) {
    return createHTTPserver(port, (req, res) => {
       //
    });
-}
-
-function logtofn(fn: typeof console.log, ...msgs: any) {
-   fn(`(PID ${process.pid} ${isMaster ? "MASTER" : "WORKER"}) ${msgs.join(" ")}`);
-}
-function log(...msgs: any) {
-   logtofn(console.log, ...msgs);
-}
-function error(...msgs: any) {
-   logtofn(console.error, ...msgs);
 }
