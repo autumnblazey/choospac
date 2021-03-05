@@ -2,5 +2,8 @@
 
 /** @type {import("@vue/cli-service").ProjectOptions} */
 module.exports = {
-   lintOnSave: false
+   lintOnSave: false,
+   devServer: {
+      public: "localhost:8080"
+   }
 };
