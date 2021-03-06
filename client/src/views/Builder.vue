@@ -19,12 +19,12 @@ builder steps:
 
    .buttons
       keep-alive
-         template(v-if="hasnext")
-            div(@click="next") next
-
-      keep-alive
          template(v-if="hasprevious")
             div(@click="previous") previous
+
+      keep-alive
+         template(v-if="hasnext")
+            div(@click="next") next
 </template>
 
 <style lang="scss" scoped>
