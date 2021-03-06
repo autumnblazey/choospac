@@ -20,11 +20,13 @@ builder steps:
    .buttons
       keep-alive
          template(v-if="hasprevious")
-            div(@click="previous") previous
+            .previous(@click="previous") &lt; previous
+
+      .spacer
 
       keep-alive
          template(v-if="hasnext")
-            div(@click="next") next
+            .next(@click="next") next &gt;
 </template>
 
 <style lang="scss" scoped>
@@ -40,6 +42,24 @@ builder steps:
 .buttons {
    flex-shrink: 0;
    display: flex;
+   // padding-bottom: 30px;
+}
+
+.previous, .next {
+   // margin: 15px;
+   // padding: 30px;
+   // border: 1px solid black;
+   // border-radius: 5px;
+   // flex-grow: 2;
+   cursor: pointer;
+}
+
+// .next {
+//    text-align: right;
+// }
+
+.spacer {
+   flex-grow: 1;
 }
 </style>
 
