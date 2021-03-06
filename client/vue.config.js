@@ -5,5 +5,8 @@ module.exports = {
    lintOnSave: false,
    devServer: {
       public: "localhost:8080"
+   },
+   chainWebpack: config => {
+      config.devtool("source-map");
    }
 };

@@ -1,10 +1,13 @@
 <template lang="pug">
-#everything
-   #nav.
-      #[NavbarLink(to="/") Home]
-      | #[NavbarLink(to="/builder") Builder]
-      | #[NavbarLink(to="/about") About]
-   router-view
+#nav.
+   #[NavbarLink(to="/") Home]
+   | #[NavbarLink(to="/builder") Builder]
+   | #[NavbarLink(to="/about") About]
+
+#router-view
+   router-view(v-slot="{ Component }")
+      keep-alive
+         component(:is="Component")
 </template>
 
 <style lang="scss">
@@ -20,9 +23,17 @@
 a {
    text-decoration: none;
 }
-#everything {
+
+#router-view {
+   padding-left: 15px;
+   padding-right: 15px;
+   flex-grow: 1;
+}
+
+body {
+   background-color: $background-color;
    height: 100vh;
-   padding: 30px;
+   display: flex;
 }
 
 #app {
@@ -30,10 +41,20 @@ a {
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    background-color: $background-color;
+
+   // margin-left: 30px;
+   // margin-right: 30px;
+   // margin-top: 30px;
+   margin: 30px;
+   flex-grow: 1;
+
+   display: flex;
+   flex-direction: column;
 }
 
 #nav {
    padding-bottom: 30px;
+   // transform: translate(-30px, 0);
 
    a {
       font-weight: bold;
