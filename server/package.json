@@ -6,7 +6,9 @@
       "start": "node -r source-map-support/register dist"
    },
    "dependencies": {
+      "@types/mime-db": "^1.43.0",
       "json5": "^2.2.0",
+      "mime-db": "^1.46.0",
       "source-map-support": "^0.5.19",
       "typescript": "^4.2.2",
       "zod": "^3.0.0-alpha.4"
