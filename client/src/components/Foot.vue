@@ -1,8 +1,8 @@
 <template lang="pug">
 .foot
    div.
-      choospac &copy; #[a(href="https://github.com/autumnblazey/") Alexander Liu (autumnblazey)] 2021
-      #[br] Licensed under AGPL-3 only (#[a(href="https://github.com/autumnblazey/choospac") source code])
+      choospac &copy; #[a(href="https://github.com/autumnblazey/" target="_blank") Alexander Liu (autumnblazey)] 2021
+      #[br] Licensed under AGPL-3 only (#[a(href="https://github.com/autumnblazey/choospac" target="_blank") source code])
    div(v-html="additionalfooter")
 </template>
 
