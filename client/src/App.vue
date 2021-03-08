@@ -1,17 +1,20 @@
 <template lang="pug">
-#nav.
-   #[NavbarLink(to="/") Home]
-   | #[NavbarLink(to="/builder") Builder]
-   | #[NavbarLink(to="/about") About]
+#main-app
+   #nav.
+      #[NavbarLink(to="/") Home]
+      | #[NavbarLink(to="/builder") Builder]
+      | #[NavbarLink(to="/about") About]
 
-#router-view
-   router-view(v-slot="{ Component }")
-      keep-alive
-         component(:is="Component")
+   #router-view
+      router-view(v-slot="{ Component }")
+         keep-alive
+            component(:is="Component")
+
+THEFOOT
 </template>
 
 <style lang="scss">
-@import "vars/scss_vars";
+@import "config/scss_vars";
 
 * {
    margin: 0;
@@ -41,12 +44,18 @@ body {
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    background-color: $background-color;
+   flex-grow: 1;
+   display: flex;
+   flex-direction: column;
 
    // margin-left: 30px;
    // margin-right: 30px;
    // margin-top: 30px;
-   margin: 30px;
+}
+
+#main-app {
    flex-grow: 1;
+   margin: 30px;
 
    display: flex;
    flex-direction: column;
@@ -70,10 +79,12 @@ body {
 <script lang="ts">
 import { defineComponent } from "vue";
 import NavbarLink from "@/components/NavbarLink.vue";
+import THEFOOT from "@/components/Foot.vue";
 
 export default defineComponent({
    components: {
-      NavbarLink
+      NavbarLink,
+      THEFOOT
    }
 });
 </script>

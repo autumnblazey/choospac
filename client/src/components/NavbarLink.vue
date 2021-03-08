@@ -14,7 +14,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "../vars/scss_vars";
+@import "../config/scss_vars";
 
 .navlink {
    text-decoration: none;
